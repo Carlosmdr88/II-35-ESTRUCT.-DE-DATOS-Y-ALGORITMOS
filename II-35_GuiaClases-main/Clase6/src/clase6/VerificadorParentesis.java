@@ -34,7 +34,7 @@ public class VerificadorParentesis {
     }
 
     public static void main(String[] args) {
-        String[] expresiones = { "{[}]" };
+        String[] expresiones = { "{}" };
 
         for (String expresion : expresiones) {
             System.out.println("La expresión \"" + expresion + "\" es balanceada: " + sonBalanceados(expresion));

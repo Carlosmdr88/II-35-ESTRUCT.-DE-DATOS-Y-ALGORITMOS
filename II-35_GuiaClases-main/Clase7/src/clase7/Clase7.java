@@ -15,7 +15,15 @@ public class Clase7 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //ColaConArray clientes = new ColaConArray(5);
+        ColaConArray clientes1 = new ColaConArray(5);
+        
+        clientes1.enqueue(10);
+        clientes1.enqueue(20);
+        clientes1.enqueue(30);
+        clientes1.enqueue(40);
+        clientes1.enqueue(50);
+        
+        System.out.println("");
         
         ColaConLista clientes = new ColaConLista();
 
