@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package clase7;
+package lab04;
 
 /**
  *
@@ -11,53 +11,71 @@ package clase7;
 public class ColaConArray {
 
     private int maxSize;
-    private int[] cola;
+    private Carro[] cola;
     
     private int frente;//cabeza/ head
     private int fin;//cola /tail
-    private int tamaño;
+    private int tamano;
 
     public ColaConArray(int size) {
         this.maxSize = size;
-        this.cola = new int[maxSize];
+        this.cola = new Carro[maxSize];
         this.frente = 0;
         this.fin = -1;
-        this.tamaño = 0;
+        this.tamano = 0;
     }
+
+    @Override
+    public String toString() {
+        var sal = "";
+        for (Carro carro : cola) {
+            sal += carro + "\n";
+        }
+        return sal;
+    }
+    
         //AGREGA ELEMNTOS A LACOLA
-    public void enqueue(int elemento) {
-        if (tamaño == maxSize) {
-            throw new IllegalStateException("La cola está llena.");
+    public void enqueue(Carro elemento) {
+        if (tamano == maxSize) {
+            throw new IllegalStateException("La cola estï¿½ llena.");
         }
         fin = (fin + 1) % maxSize; // Circular
         cola[fin] = elemento;
-        tamaño++;
+        tamano++;
         
         System.out.println("Se agrego a la cola el elemento: " + elemento);
     }
 
-    public int dequeue() {
+    public Carro dequeue() {
         if (isEmpty()) {
-            throw new IllegalStateException("La cola está vacía.");
+            throw new IllegalStateException("La cola estï¿½ vacï¿½a.");
         }
-        int elemento = cola[frente];
+        Carro elemento = cola[frente];
         frente = (frente + 1) % maxSize; // Circular
-        tamaño--;
+        tamano--;
         return elemento;
     }
 
-    public int peek() {
+    public Carro peek() {
         if (isEmpty()) {
-            throw new IllegalStateException("La cola está vacía.");
+            throw new IllegalStateException("La cola estï¿½ vacï¿½a.");
         }
         return cola[frente];
     }
 
     public boolean isEmpty() {
-        return tamaño == 0;
+        return tamano == 0;
     }
 
     public int size() {
-        return tamaño;
+        return tamano;
+    }
+
+    Carro poll() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    Carro dequeque() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
